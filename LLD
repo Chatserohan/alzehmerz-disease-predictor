@@ -1,6 +1,6 @@
 ### Low-Level Design Document for CNN Image Classification
 
-#### **1. Dataset Loading and Preprocessing**
+#### 1. Dataset Loading and Preprocessing
 - **Training Dataset**: 
   - Directory: `traindata`
   - Labels inferred automatically.
@@ -37,7 +37,7 @@ train_ds = train_ds.map(process)
 validation_ds = validation_ds.map(process)
 ```
 
-#### **2. CNN Model Architecture**
+#### 2. CNN Model Architecture
 - **Layer Details**:
   1. Convolutional Layer: 32 filters, kernel size (3,3), ReLU activation.
   2. MaxPooling Layer: Pool size (2,2), stride 2.
@@ -67,7 +67,7 @@ model = Sequential([
 model.summary()
 ```
 
-#### **3. Model Compilation and Training**
+#### 3. Model Compilation and Training
 - **Optimizer**: Adam.
 - **Loss Function**: Binary Crossentropy.
 - **Metrics**: Accuracy.
@@ -79,7 +79,7 @@ history = model.fit(train_ds, epochs=5, validation_data=validation_ds)
 model.save('drctorai.h5')
 ```
 
-#### **4. Performance Visualization**
+#### 4. Performance Visualization
 - **Loss Graphs**: Training vs Validation loss.
 
 ```python
@@ -92,7 +92,7 @@ plt.legend()
 plt.show()
 ```
 
-#### **5. Model Predictions**
+#### 5. Model Predictions
 - **Single Image Prediction**:
   - Image resized to 256x256.
   - Pixel values normalized.
@@ -112,7 +112,7 @@ print(predict_image('testdata/AD/0ce036a7-c924-4799-ab23-71ae7a550cf0.jpg'))
 print(predict_image('testdata/CN/ff03822c-7ae5-49b6-853d-2b373cc76895.jpg'))
 ```
 
-#### **6. Model Evaluation**
+#### 6. Model Evaluation
 - **Test Dataset**:
   - Images rescaled to [0, 1].
   - Batched and evaluated for loss and accuracy.
